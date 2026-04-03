@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>День Рождения</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="corner-icon-container">
+        <img src="ausrufezeichen1.png" alt="иконка" class="corner-icon">
+    </div>
+    <div class="second-icon-container">
+        <img src="stern.png" alt="иконка" class="corner-icon">
+    </div>
+    <!-- Вкладки в верхнем левом углу -->
+    <div class="tabs-container">
+        <div class="tabs">
+            <button class="tab-button active" data-tab="home">Главная</button>
+            <button class="tab-button" data-tab="tab1">Письмо  <span class="badge hidden" id="badge-tab1">!</span></button>
+            <button class="tab-button" data-tab="tab2">Ты  <span class="badge hidden" id="badge-tab2">!</span></button>
+            <button class="tab-button" data-tab="tab3">Наше общение <span class="badge hidden" id="badge-tab3">!</span></button>
+        </div>
+    </div>
+
+    <!-- Содержание вкладок -->
+    <div class="tab-content">
+        <div class="tab-pane active" id="home">
+            <div class="home-video-wrapper">
+                <button class="video-play-btn" id="playBirthdayVideo">Нажми!</button>
+                <video id="birthdayVideo" class="birthday-video" preload="none" muted>
+                    <source src="birthday.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+            </div>
+        </div>
+        <div class="tab-pane" id="tab1">
+            <div class="letter-container">
+                <!-- Конверт -->
+                <div class="envelope" id="envelope">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-body">
+                        <h2>Открой меня</h2>
+                    </div>
+                </div>
+
+                <!-- Письмо -->
+                <div class="letter-box hidden" id="letterBox">
+                    <div class="letter-content">
+                        <h2>Дорогой Ден,</h2>
+                         <p>хахах, так сложно начать…<br>
+                        Сам знаешь, сколько всего я всегда хочу тебе сказать, но сегодня особенный день.<br>
+                        С днем рождения тебя, самый лучший человек из всех, с кем я когда-либо дружила.</p>
+
+                        <p>Я невероятно благодарна тебе за то, что ты есть.<br>
+                        ты появился в моей жизни тогда, когда мне был нужен кто-то рядом, чтобы не сойти с ума. Но в итоге я получила друга, о котором даже мечтать невозможно.<br>
+                        Ты стал для меня одним из самых важных людей. Тем, о ком я думаю, когда речь заходит о настоящей дружбе, о близких, о людях, которых ценим и любим.</p>
+
+                        <p>Я хочу, чтобы ты знал: ты действительно невероятно прекрасный человек, которого нужно ценить безмерно.<br>
+                        Ты умеешь быть рядом и поддерживать, умеешь давать чувство, что человек важен, умеешь дарить спокойствие.<br>
+                        Ты умеешь глубоко чувствовать и так же прекрасно принимаешь чувства других.<br>
+                        Ты человек, которого хочется пожелать каждому, но которого мало кто достоин.</p>
+
+                        <p>Мне безумно повезло с таким другом, как ты. Я надеюсь, что вызываю у тебя хотя бы часть тех чувств, которые ты вызываешь у меня.<br>
+                        Потому что к тебе я испытываю огромные количества благодарности, радости, спокойствия и, конечно, настоящей, искренней дружеской любви.<br>
+                        Ты драгоценность, Ден. Настоящая драгоценность.</p>
+
+                        <p>Я столько раз перечитывала твое поздравление на мой день рождения, что просто хочу ответить тебе взаимностью.<br>
+                        Я всегда буду рядом, если понадоблюсь тебе, и всегда буду верить в тебя. Ты чудо, которое заслуживает всего на свете, и у тебя всё будет замечательно.</p>
+
+                        <p>С днем рождения тебя!<br>
+                        Пусть следующий год принесет тебе море радости и удачи, пусть сбудутся все твои желания, пусть все проблемы постепенно решатся.<br>
+                        Пусть ты будешь самым счастливым человеком на свете – потому что ты это заслужил.<br>
+                        Пусть этот год станет твоим годом по-настоящему.<br>
+                        И пусть сегодняшний день, твой день, наполнится вниманием, теплом и радостью.</p>
+
+                        <p>С днем рождения ❤️</p>
+                        <p style="margin-top: 30px; font-style: italic;">
+                            Севка
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="tab2">
+            <h1>50 причин, почему ты замечательный человек и друг</h1>
+            <div class="paper-list" id="paperList"></div>
+        </div>
+        <div class="tab-pane" id="tab3">
+            <h1>наше общение и дружба</h1>
+             <p><strong>27.11.2024</strong><br>
+    мы познакомились</p>
+
+    <p><strong>20.08.2025</strong><br>
+    я написала тебе, с чего началось регулярное нытьё с моей стороны, которое в итоге переросло в нормальное общение и дружбу, хвх</p>
+
+    <p><strong>30.09.2025</strong><br>
+    примерная дата, с которой я, по моему мнению, могу называть тебя своим другом</p>
+
+    <br>
+
+    <p><strong>итого в дружбе:</strong></p>
+
+    <ul>
+        <li>6 месяцев</li>
+        <li>или 26 недель</li>
+        <li>или 187 дней</li>
+        <li>несколько флудов</li>
+        <li>много звонков</li>
+        <li>1 майнкрафт сервер (кстати)</li>
+        <li>102 дней серийчику</li>
+    </ul>
+
+    <br>
+
+    <p>
+    и один самый лучший друг на свете, с которым меня это всё объединяет.<br>
+    спасибо, Ден, ты правда невероятный и безумно важный мне человек 💙
+    </p>
+        </div>
+    </div>
+
+    <!-- Первый элемент (нижний левый край) -->
+    <div class="circles-container bottom-left">
+        <div class="circles"></div>
+    </div>
+
+    <!-- Второй элемент (верхний правый край) -->
+    <div class="circles-container top-right">
+        <div class="circles"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

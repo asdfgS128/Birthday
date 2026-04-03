@@ -1,0 +1,455 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: #cecdcd; /* Светло-серый фон */
+    overflow: hidden;
+    position: relative; 
+    font-family: Arial, sans-serif;
+}
+
+/* Стили для контейнера вкладок */
+.corner-icon-container {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 200;
+}
+
+.second-icon-container {
+    position: fixed;
+    bottom: 12px;
+    left: 12px;
+    z-index: 200;
+    
+}
+
+
+.corner-icon {
+    display: block;
+    width: 350px;
+    height: 350px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+.corner-icon:hover {
+    transform: scale(1.08);
+}
+
+.tabs-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: transparent;
+    padding: 15px 20px;
+}
+
+.tabs {
+    display: flex;
+    gap: 30px;
+}
+
+.tab-button {
+    padding: 5px 0;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    color: #666;
+    font-weight: 500;
+}
+
+.tab-button:hover {
+    color: #364450;
+}
+
+.tab-button.active {
+    color: #364450;
+    border-bottom: 2px solid #364450;
+    font-weight: bold;
+}
+
+.badge {
+    display: inline-block;
+    margin-left: 6px;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background-color: #e33;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.badge.hidden {
+    display: none;
+}
+
+/* Стили для содержания вкладок */
+.tab-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #d3d3d3;
+    overflow-y: auto;
+   
+}
+
+.tab-pane {
+    display: none;
+    width: 100%;
+    height: 100%;
+    padding: 80px 40px 40px 40px;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-pane.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#tab3 {
+    align-items: center;
+    text-align: center;
+}
+
+#tab3 p {
+    max-width: 600px;
+}
+
+#tab3 ul {
+    list-style-position: inside;
+    padding: 0;
+}
+
+.tab-content {
+    background-color: transparent;
+}
+
+.tab-pane h1 {
+    color: #364450;
+    margin-bottom: 15px;
+    font-size: 28px;
+    font-family: 'Balsamiq Sans', sans-serif;
+}
+
+.tab-pane p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 16px;
+    max-width: 600px;
+
+}
+
+.paper-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    padding: 10px;
+    margin-top: 20px;
+    max-height: calc(100vh - 170px);
+    overflow-y: auto;
+    
+   
+    
+   
+}
+
+.paper-item {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    
+
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Стили для письма и конверта */
+.letter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+.envelope {
+    width: 350px;
+    height: 210px;
+    background-color: #6580a0;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.envelope:hover {
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+}
+
+/* Треугольный клапан конверта */
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    height: 65px;
+    background-color: #4a5d78;
+    z-index: 2;
+    transition: transform 0.3s ease;
+    transform-origin: top center;
+    clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
+    border-radius: 0 0 10px 10px;
+}
+
+.envelope:hover .envelope-flap {
+    transform: translateX(-50%) rotateX(-60deg);
+}
+
+.envelope-body {
+    padding: 25px;
+    height: 145px;
+    background-color: #6580a0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    box-sizing: border-box;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+.envelope-body h2 {
+    color: white;
+    font-size: 26px;
+    text-align: center;
+    font-family: 'Balsamiq Sans', sans-serif;
+    font-weight: 700;
+    margin-top: 12px;
+}
+
+/* Стили для открытого письма */
+.letter-box {
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 560px;
+    height: 540px;
+    background-color: #fffefa;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.2);
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    animation: slideIn 0.3s ease;
+    background-image: url('paper.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.letter-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.7);
+    pointer-events: none;
+    border-radius: 8px;
+}
+
+.letter-box::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background: linear-gradient(45deg, transparent 49%, rgba(230,230,210,0.4) 50%, transparent 51%);
+    opacity: 0.25;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.letter-box {
+    overflow: hidden;
+}
+
+.letter-box.hidden {
+    display: none !important;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+
+
+.letter-content {
+    padding: 30px;
+    overflow-y: auto;
+    flex: 1;
+    font-family: 'Dancing Script', cursive;
+    font-size: 20px;
+}
+
+.letter-content h2 {
+    color: #364450;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.letter-content p {
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    font-size: 15px;
+    text-align: justify;
+}
+
+.circles-container {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.home-video-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 12px;
+}
+
+.video-play-btn {
+    padding: 20px 35px;
+    font-size: 22px;
+    font-family: 'Balsamiq Sans', sans-serif;
+    border: 1px solid #7ea5c7;
+    border-radius: 8px;
+    background-color: #7d9bc2;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.video-play-btn:hover {
+    background-color: #748bb0;
+}
+
+.birthday-video {
+    width: 85vw;
+    max-width: 1000px;
+    max-height: 70vh;
+    display: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: #cecdcd;
+  
+    
+}
+
+/* Скрываем встроенные контроллы видео */
+.birthday-video::-webkit-media-controls {
+    display: none !important;
+}
+.birthday-video::-webkit-media-controls-panel {
+    display: none !important;
+}
+.birthday-video::-moz-media-controls {
+    display: none !important;
+}
+.birthday-video::-ms-media-controls {
+    display: none !important;
+}
+.birthday-video::controls {
+    display: none !important;
+}
+
+
+/* Позиционирование первого элемента (нижний левый край, на 20% от левого края) */
+.circles-container.bottom-left {
+    bottom: -170px;
+    left: 8%;
+    transform: translateX(-50%);
+    z-index : -5;
+}
+
+/* Позиционирование второго элемента (верхний правый край) */
+.circles-container.top-right {
+    top: -160px;
+    right: 10%;
+}
+
+/* Стилизация концентрических кругов с использованием radial-gradient */
+.circles {
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at center,
+        #ffffff 0%,           /* Белый внутр. круг */
+        #ffffff 15%,
+        #8fa8c8 16.5%,          /* Светлый приглушенный синий */
+        #8fa8c8 35%,
+        #6580a0 36.5%,          /* Средний приглушенный синий */
+        #6580a0 55%,
+        #4a5d78 56.5%,          /* Темный приглушенный синий */
+        #4a5d78 75%,
+        #364450 76.5%,          /* Очень темный приглушенный синий */
+        #364450 95%,
+        #364450 96.5%           /* Внешний синий круг */
+    );
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
